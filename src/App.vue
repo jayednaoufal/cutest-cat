@@ -1,6 +1,8 @@
 <template>
   <div class="header">
-    <div class="header-image">Logo</div>
+    <div class="header-image">
+      <img src="./assets/logo.png" alt="vue" />
+    </div>
     <h1 class="title">CATMASH</h1>
   </div>
   <router-view />
@@ -24,9 +26,9 @@ template {
   margin-bottom: 20px;
 }
 .header-image {
-  width: 30%;
-  height: 150px;
-  background-color: #eaeaea;
+  width: 40%;
+  height: 180px;
+  background-color: #ffffff;
   border: 2px solid #ccc;
   border-radius: 10px;
   display: flex;
@@ -36,6 +38,12 @@ template {
   font-size: 1.2em;
   color: #666;
   margin-bottom: 10px;
+  overflow: hidden;
+}
+.cat-image img {
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
 }
 .title {
   font-size: 2em;

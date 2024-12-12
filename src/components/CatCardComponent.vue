@@ -1,11 +1,15 @@
 <template>
-  <div v-for="cat in cats" :key="cat.id" :class="leaderboardClass(cat.rank)">
-    <div class="rank">{{ cat.rank }}</div>
+  <div
+    v-for="(cat, index) in cats"
+    :key="cat.id"
+    :class="leaderboardClass(index + 1)"
+  >
+    <div class="rank">{{ index + 1 }}</div>
     <div class="cat-image">
-      <img src="" :alt="cat.name" />
+      <img :src="cat.url" :alt="cat.id" />
     </div>
-    <div>{{ cat.name }}</div>
-    <div class="score">Score: {{ cat.score }} pts</div>
+    <div>Chat {{ index + 1 }}</div>
+    <div class="score">Score: {{ 1000 - index + 1 }} pts</div>
   </div>
 </template>
 
@@ -37,19 +41,27 @@ export default {
   font-size: 1.2em;
   color: #666;
   margin: 10px 0;
+  overflow: hidden;
+}
+
+.cat-image img {
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
 }
 
 .leaderboard-item-first {
   display: flex;
   flex-direction: column;
   align-items: center;
-  background-color: #e0e7ef;
+  background-color: #394149;
+  color: rgb(255, 255, 255);
   border-radius: 8px;
   padding: 15px;
   text-align: center;
   position: relative;
   width: 30%;
-  height: 100%;
+  height: 500px;
   margin: 20px 0;
   align-self: center;
 }
@@ -58,28 +70,30 @@ export default {
   display: flex;
   flex-direction: column;
   align-items: center;
-  background-color: #e0e7ef;
+  background-color: #565e68;
+  color: rgb(255, 255, 255);
   border-radius: 8px;
   padding: 15px;
   text-align: center;
   position: relative;
   width: 30%;
-  height: 80%;
+  height: 400px;
   margin: 20px 0;
-  align-self: flex-start;
+  align-self: flex-end;
 }
 
 .leaderboard-item-third {
   display: flex;
   flex-direction: column;
   align-items: center;
-  background-color: #e0e7ef;
+  background-color: #6f767e;
+  color: rgb(255, 255, 255);
   border-radius: 8px;
   padding: 15px;
   text-align: center;
   position: relative;
   width: 30%;
-  height: 40%;
+  height: 300px;
   margin: 20px 0;
   align-self: flex-end;
 }

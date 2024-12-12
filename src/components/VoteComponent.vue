@@ -3,14 +3,14 @@
   <div class="cats">
     <div v-for="cat in cats" :key="cat.id" class="cat">
       <div class="cat-image">
-        <img src="" :alt="cat.name" />
+        <img :src="cat.url" :alt="cat.name" />
       </div>
       <button class="like-button">J'aime</button>
     </div>
   </div>
 </template>
 <!-- eslint-disable prettier/prettier -->
-<script>
+<script lang="ts">
 export default {
   props: ["cats"],
 };
@@ -32,8 +32,8 @@ export default {
   margin: 20px 0;
 }
 .cat-image {
-  width: 30%;
-  height: 150px;
+  width: 60%;
+  height: 200px;
   background-color: #eaeaea;
   border: 2px solid #ccc;
   border-radius: 10px;
@@ -43,20 +43,24 @@ export default {
   font-size: 1.2em;
   color: #666;
   margin-bottom: 10px;
+  overflow: hidden;
 }
-
+.cat-image img {
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+}
 .like-button {
-  background-color: #1e90ff;
+  background-color: #223951;
   color: white;
   border: none;
-  padding: 10px 20px;
+  padding: 15px 23px;
   border-radius: 5px;
   font-size: 1em;
   cursor: pointer;
   transition: background-color 0.3s ease;
 }
-
 .like-button:hover {
-  background-color: #0073e6;
+  background-color: #3b5a78;
 }
 </style>
