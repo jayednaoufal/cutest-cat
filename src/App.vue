@@ -1,30 +1,45 @@
 <template>
-  <nav>
-    <router-link to="/">Home</router-link> |
-    <router-link to="/about">About</router-link>
-  </nav>
+  <div class="header">
+    <div class="header-image">Logo</div>
+    <h1 class="title">CATMASH</h1>
+  </div>
   <router-view />
 </template>
 
 <style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+template {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background-color: #f9f9f9;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.header {
+  width: 30%;
+  justify-self: center;
   text-align: center;
-  color: #2c3e50;
+  margin-bottom: 20px;
 }
-
-nav {
-  padding: 30px;
+.header-image {
+  width: 30%;
+  height: 150px;
+  background-color: #eaeaea;
+  border: 2px solid #ccc;
+  border-radius: 10px;
+  display: flex;
+  justify-self: center;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.2em;
+  color: #666;
+  margin-bottom: 10px;
 }
-
-nav a {
+.title {
+  font-size: 2em;
   font-weight: bold;
-  color: #2c3e50;
-}
-
-nav a.router-link-exact-active {
-  color: #42b983;
+  color: #333;
 }
 </style>
