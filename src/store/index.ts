@@ -1,9 +1,6 @@
 import { createStore } from "vuex";
+import CatsModule from "./cats/index";
 
 export default createStore({
-  state: {},
-  getters: {},
-  mutations: {},
-  actions: {},
-  modules: {},
+  modules: { cats: CatsModule },
 });
