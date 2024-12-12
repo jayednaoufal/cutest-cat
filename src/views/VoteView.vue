@@ -10,42 +10,29 @@
   </div>
 </template>
 
-<script lang="ts">
+<script>
 import VoteComponent from "@/components/VoteComponent.vue";
+import { mapActions, mapGetters } from "vuex";
 
 export default {
   components: {
     VoteComponent,
   },
   data() {
-    return {
-      cats: [
-        {
-          id: 1,
-          name: "cat 1",
-        },
-        {
-          id: 2,
-          name: "cat 2",
-        },
-        {
-          id: 3,
-          name: "cat 3",
-        },
-        {
-          id: 4,
-          name: "cat 4",
-        },
-        {
-          id: 5,
-          name: "cat 5",
-        },
-        {
-          id: 6,
-          name: "cat 6",
-        },
-      ],
-    };
+    return {};
+  },
+  created() {
+    this.index();
+  },
+  methods: {
+    ...mapActions("cats", {
+      index: "index",
+    }),
+  },
+  computed: {
+    ...mapGetters("cats", {
+      cats: "getCats",
+    }),
   },
 };
 </script>

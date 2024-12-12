@@ -10,54 +10,26 @@
   </div>
 </template>
 
-<script lang="ts">
+<script>
 import CatCardComponent from "@/components/CatCardComponent.vue";
+import { mapActions, mapGetters } from "vuex";
 
 export default {
   components: {
     CatCardComponent,
   },
-  data() {
-    return {
-      cats: [
-        {
-          id: 1,
-          name: "cat 1",
-          score: 1000,
-          rank: 1,
-        },
-        {
-          id: 2,
-          name: "cat 2",
-          score: 1000,
-          rank: 2,
-        },
-        {
-          id: 3,
-          name: "cat 3",
-          score: 1000,
-          rank: 3,
-        },
-        {
-          id: 4,
-          name: "cat 4",
-          score: 1000,
-          rank: 4,
-        },
-        {
-          id: 5,
-          name: "cat 5",
-          score: 1000,
-          rank: 5,
-        },
-        {
-          id: 6,
-          name: "cat 6",
-          score: 1000,
-          rank: 6,
-        },
-      ],
-    };
+  created() {
+    this.index();
+  },
+  methods: {
+    ...mapActions("cats", {
+      index: "index",
+    }),
+  },
+  computed: {
+    ...mapGetters("cats", {
+      cats: "getCats",
+    }),
   },
 };
 </script>
