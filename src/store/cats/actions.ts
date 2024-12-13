@@ -1,4 +1,3 @@
-/* eslint-disable prettier/prettier */
 import axios from "axios";
 export default {
   async index({ commit }) {
@@ -9,5 +8,5 @@ export default {
       console.log(error);
       commit("setCats", null);
     }
-  }
+  },
 };

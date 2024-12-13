@@ -1,11 +1,10 @@
-/* eslint-disable prettier/prettier */
 import CatsGetters from "./getters";
 import CatsActions from "./actions";
 import CatsMutations from "./mutations";
 export default {
   namespaced: true,
   state: {
-    cats : {},
+    cats: {},
   },
   getters: CatsGetters,
   actions: CatsActions,

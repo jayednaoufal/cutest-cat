@@ -1,4 +1,3 @@
-/* eslint-disable prettier/prettier */
 export default {
   setCats(state, cats) {
     const ranks = Array(cats.length).fill(1);

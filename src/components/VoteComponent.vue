@@ -1,21 +1,35 @@
-<!-- eslint-disable prettier/prettier -->
 <template>
   <div class="cats">
-    <div v-for="cat in cats" :key="cat.id" class="cat">
+    <div v-for="(cat, index) in cats.cats" :key="cat.id" class="cat">
       <div class="cat-image">
         <img :src="cat.url" :alt="cat.name" />
       </div>
-      <button class="like-button">J'aime</button>
+      <div class="cat-name">Chat {{ index + 1 }}</div>
+      <button class="like-button" @click="like(index)">J'aime</button>
     </div>
   </div>
 </template>
-<!-- eslint-disable prettier/prettier -->
-<script lang="ts">
+<script>
+import { mapMutations } from "vuex";
+
 export default {
   props: ["cats"],
+  data() {
+    return {
+      liked: false,
+    };
+  },
+  methods: {
+    like(index) {
+      this.modifyScore(index);
+      this.liked = !this.liked;
+    },
+    ...mapMutations("cats", {
+      modifyScore: "modifyScore",
+    }),
+  },
 };
 </script>
-<!-- eslint-disable prettier/prettier -->
 <style scoped>
 .cats {
   display: flex;
@@ -24,16 +38,18 @@ export default {
   gap: 30px;
   padding: 30px 0;
 }
+
 .cat {
   display: flex;
   flex-direction: column;
   align-items: center;
   width: 45%;
-  margin: 20px 0;
+  margin: 50px 0;
 }
+
 .cat-image {
-  width: 60%;
-  height: 200px;
+  width: 50%;
+  height: 250px;
   background-color: #eaeaea;
   border: 2px solid #ccc;
   border-radius: 10px;
@@ -42,7 +58,6 @@ export default {
   align-items: center;
   font-size: 1.2em;
   color: #666;
-  margin-bottom: 10px;
   overflow: hidden;
 }
 .cat-image img {
@@ -50,17 +65,29 @@ export default {
   width: 100%;
   object-fit: cover;
 }
+.cat-name {
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  font-size: 1.2em;
+  font-weight: 650;
+  margin-top: 6px;
+  margin-bottom: 20px;
+}
+
 .like-button {
   background-color: #223951;
   color: white;
   border: none;
-  padding: 15px 23px;
+  padding: 10px 23px;
   border-radius: 5px;
   font-size: 1em;
   cursor: pointer;
   transition: background-color 0.3s ease;
 }
 .like-button:hover {
-  background-color: #3b5a78;
+  background-color: #2c80d4;
+}
+.like-button:active {
+  background-color: #2c80d4;
+  transform: scale(0.95);
 }
 </style>

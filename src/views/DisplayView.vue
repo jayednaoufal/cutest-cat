@@ -12,19 +12,11 @@
 
 <script>
 import CatCardComponent from "@/components/CatCardComponent.vue";
-import { mapActions, mapGetters } from "vuex";
+import { mapGetters } from "vuex";
 
 export default {
   components: {
     CatCardComponent,
-  },
-  created() {
-    this.index();
-  },
-  methods: {
-    ...mapActions("cats", {
-      index: "index",
-    }),
   },
   computed: {
     ...mapGetters("cats", {
@@ -39,12 +31,12 @@ export default {
   display: flex;
   justify-content: space-between;
   flex-wrap: wrap;
-  gap: 30px;
+  gap: 30px 0;
   padding: 30px 0;
 }
 
 .container {
-  width: 80%;
+  width: 90%;
   justify-self: center;
   text-align: center;
   padding: 0 0;

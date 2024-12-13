@@ -1,15 +1,16 @@
 <template>
   <div
-    v-for="(cat, index) in cats"
+    v-for="(cat, index) in cats.cats"
     :key="cat.id"
-    :class="leaderboardClass(index + 1)"
+    :class="leaderboardClass(cats.ranks[index])"
+    :style="{ order: computeOrder(cats.ranks[index]) }"
   >
-    <div class="rank">{{ index + 1 }}</div>
+    <div class="rank">{{ cats.ranks[index] }}</div>
     <div class="cat-image">
       <img :src="cat.url" :alt="cat.id" />
     </div>
     <div>Chat {{ index + 1 }}</div>
-    <div class="score">Score: {{ 1000 - index + 1 }} pts</div>
+    <div class="score">Score: {{ cats.scores[index] }} pts</div>
   </div>
 </template>
 
@@ -23,6 +24,10 @@ export default {
       else if (rank == 2) return "leaderboard-item-second";
       else if (rank == 3) return "leaderboard-item-third";
       else return "leaderboard-item";
+    },
+    computeOrder(rank) {
+      if (rank === 1) return 2;
+      return rank;
     },
   },
 };
@@ -60,10 +65,21 @@ export default {
   padding: 15px;
   text-align: center;
   position: relative;
-  width: 30%;
-  height: 500px;
+  width: 28%;
+  height: 400px;
   margin: 20px 0;
   align-self: center;
+  justify-content: center;
+}
+
+.leaderboard-item-first .cat-image {
+  width: 70%;
+  height: 200px;
+}
+
+.leaderboard-item-first .cat-image {
+  width: 70%;
+  height: 200px;
 }
 
 .leaderboard-item-second {
@@ -76,10 +92,11 @@ export default {
   padding: 15px;
   text-align: center;
   position: relative;
-  width: 30%;
-  height: 400px;
+  width: 28%;
+  height: 350px;
   margin: 20px 0;
   align-self: flex-end;
+  justify-content: center;
 }
 
 .leaderboard-item-third {
@@ -92,10 +109,11 @@ export default {
   padding: 15px;
   text-align: center;
   position: relative;
-  width: 30%;
+  width: 28%;
   height: 300px;
   margin: 20px 0;
   align-self: flex-end;
+  justify-content: center;
 }
 
 .leaderboard-item {
@@ -107,7 +125,7 @@ export default {
   padding: 15px;
   text-align: center;
   position: relative;
-  width: 30%;
+  width: 20%;
   margin: 20px 0;
 }
 

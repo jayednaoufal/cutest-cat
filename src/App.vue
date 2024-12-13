@@ -1,13 +1,28 @@
 <template>
   <div class="header">
-    <div class="header-image">
-      <img src="./assets/logo.png" alt="vue" />
-    </div>
-    <h1 class="title">CATMASH</h1>
+    <router-link to="/" class="no-underline">
+      <div class="header-image">
+        <img src="./assets/logo.png" alt="vue" />
+      </div>
+      <h1 class="title">CATMASH</h1>
+    </router-link>
   </div>
   <router-view />
 </template>
+<script>
+import { mapActions } from "vuex";
 
+export default {
+  created() {
+    this.index();
+  },
+  methods: {
+    ...mapActions("cats", {
+      index: "index",
+    }),
+  },
+};
+</script>
 <style>
 template {
   margin: 0;
@@ -23,11 +38,11 @@ template {
   width: 30%;
   justify-self: center;
   text-align: center;
-  margin-bottom: 20px;
+  margin-bottom: 50px;
 }
 .header-image {
-  width: 40%;
-  height: 180px;
+  width: 30%;
+  height: 118px;
   background-color: #ffffff;
   border: 2px solid #ccc;
   border-radius: 10px;
@@ -37,17 +52,25 @@ template {
   justify-content: center;
   font-size: 1.2em;
   color: #666;
-  margin-bottom: 10px;
+  margin-top: 20px;
   overflow: hidden;
 }
-.cat-image img {
-  height: 100%;
-  width: 100%;
+
+.header-image img {
+  height: 80%;
+  width: 80%;
   object-fit: cover;
 }
+
+.no-underline {
+  text-decoration: none;
+}
+
 .title {
-  font-size: 2em;
-  font-weight: bold;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  font-size: 1.6em;
+  font-weight: 650;
   color: #333;
+  margin-top: 5px;
 }
 </style>

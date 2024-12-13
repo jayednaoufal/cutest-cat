@@ -12,7 +12,7 @@
 
 <script>
 import VoteComponent from "@/components/VoteComponent.vue";
-import { mapActions, mapGetters } from "vuex";
+import { mapGetters } from "vuex";
 
 export default {
   components: {
@@ -20,14 +20,6 @@ export default {
   },
   data() {
     return {};
-  },
-  created() {
-    this.index();
-  },
-  methods: {
-    ...mapActions("cats", {
-      index: "index",
-    }),
   },
   computed: {
     ...mapGetters("cats", {
@@ -39,7 +31,7 @@ export default {
 
 <style scoped>
 .container {
-  width: 80%;
+  width: 85%;
   justify-self: center;
   text-align: center;
   padding: 0 0;

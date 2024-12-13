@@ -1,6 +1,5 @@
-/* eslint-disable prettier/prettier */
 export default {
-    getCats(state){
-        return state.cats;
-    },
-}
+  getCats(state) {
+    return state.cats;
+  },
+};
