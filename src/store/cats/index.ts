@@ -5,7 +5,7 @@ import CatsMutations from "./mutations";
 export default {
   namespaced: true,
   state: {
-    cats: [],
+    cats : {},
   },
   getters: CatsGetters,
   actions: CatsActions,
