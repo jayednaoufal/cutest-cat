@@ -5,7 +5,20 @@
         <img :src="cat.url" :alt="cat.name" />
       </div>
       <div class="cat-name">Chat {{ index + 1 }}</div>
-      <button class="like-button" @click="like(index)">J'aime</button>
+      <button
+        v-if="!cats.likes[index]"
+        class="like-button"
+        @click="like(index)"
+      >
+        J'aime
+      </button>
+      <button
+        v-if="cats.likes[index]"
+        class="unlike-button"
+        @click="like(index)"
+      >
+        J'aime déjà
+      </button>
     </div>
   </div>
 </template>
@@ -16,16 +29,15 @@ export default {
   props: ["cats"],
   data() {
     return {
-      liked: false,
+      isLiked: false,
     };
   },
   methods: {
     like(index) {
-      this.modifyScore(index);
-      this.liked = !this.liked;
+      this.modifyScoreAndRank(index);
     },
     ...mapMutations("cats", {
-      modifyScore: "modifyScore",
+      modifyScoreAndRank: "modifyScoreAndRank",
     }),
   },
 };
@@ -60,11 +72,13 @@ export default {
   color: #666;
   overflow: hidden;
 }
+
 .cat-image img {
   height: 100%;
   width: 100%;
   object-fit: cover;
 }
+
 .cat-name {
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
   font-size: 1.2em;
@@ -83,11 +97,29 @@ export default {
   cursor: pointer;
   transition: background-color 0.3s ease;
 }
+
 .like-button:hover {
   background-color: #2c80d4;
 }
+
 .like-button:active {
   background-color: #2c80d4;
+  transform: scale(0.95);
+}
+
+.unlike-button {
+  background-color: #2c80d4;
+  color: white;
+  border: none;
+  padding: 10px 23px;
+  border-radius: 5px;
+  font-size: 1em;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.unlike-button:active {
+  background-color: #223951;
   transform: scale(0.95);
 }
 </style>

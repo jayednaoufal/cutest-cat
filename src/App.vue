@@ -24,14 +24,12 @@ export default {
 };
 </script>
 <style>
-template {
+body {
   margin: 0;
-  font-family: Arial, sans-serif;
-  background-color: #f9f9f9;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 100vh;
 }
 
 .header {
@@ -67,7 +65,6 @@ template {
 }
 
 .title {
-  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
   font-size: 1.6em;
   font-weight: 650;
   color: #333;

@@ -27,6 +27,7 @@ export default {
     },
     computeOrder(rank) {
       if (rank === 1) return 2;
+      if (rank === 2) return 1;
       return rank;
     },
   },
