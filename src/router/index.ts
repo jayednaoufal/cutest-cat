@@ -1,6 +1,6 @@
 import { createRouter, createWebHashHistory, RouteRecordRaw } from "vue-router";
 import VoteView from "../views/VoteView.vue";
-import DisplayView from "../views/DisplayView.vue";
+import RankView from "../views/RankView.vue";
 
 const routes: Array<RouteRecordRaw> = [
   {
@@ -9,9 +9,9 @@ const routes: Array<RouteRecordRaw> = [
     component: VoteView,
   },
   {
-    path: "/display",
-    name: "displayView",
-    component: DisplayView,
+    path: "/rank",
+    name: "rankView",
+    component: RankView,
   },
 ];
 
