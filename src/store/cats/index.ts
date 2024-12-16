@@ -5,6 +5,7 @@ export default {
   namespaced: true,
   state: {
     cats: {},
+    matches_joues: 0,
   },
   getters: CatsGetters,
   actions: CatsActions,
