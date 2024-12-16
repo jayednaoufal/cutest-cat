@@ -1,22 +1,19 @@
 <template>
   <div class="container">
     <VoteComponent :cats="cats"></VoteComponent>
-    <div class="footer">
-      <router-link class="ranking-button" to="/display">
-        Voir le classement des chats
-      </router-link>
-      <p class="matches-played">X matches joués</p>
-    </div>
+    <FooterComponent buttonName="showRank"></FooterComponent>
   </div>
 </template>
 
 <script>
+import FooterComponent from "@/components/FooterComponent.vue";
 import VoteComponent from "@/components/VoteComponent.vue";
-import { mapGetters } from "vuex";
+import { mapGetters, mapMutations } from "vuex";
 
 export default {
   components: {
     VoteComponent,
+    FooterComponent,
   },
   data() {
     return {};
@@ -24,6 +21,11 @@ export default {
   computed: {
     ...mapGetters("cats", {
       cats: "getCats",
+    }),
+  },
+  methods: {
+    ...mapMutations("cats", {
+      setMatchesJoues: "setMatchesJoues",
     }),
   },
 };
@@ -35,31 +37,5 @@ export default {
   justify-self: center;
   text-align: center;
   padding: 0 0;
-}
-
-.footer {
-  text-align: center;
-}
-
-.ranking-button {
-  background-color: #333;
-  color: white;
-  border: none;
-  padding: 10px 20px;
-  border-radius: 5px;
-  font-size: 1em;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
-  text-decoration: none;
-}
-
-.ranking-button:hover {
-  background-color: #555;
-}
-
-.matches-played {
-  margin-top: 10px;
-  font-size: 0.9em;
-  color: #888;
 }
 </style>

@@ -3,20 +3,19 @@
     <div class="leaderboard">
       <CatCardComponent :cats="cats"></CatCardComponent>
     </div>
-    <div class="footer">
-      <router-link class="ranking-button" to="/">Revenir au vote</router-link>
-      <p class="matches-played">X matches joués</p>
-    </div>
+    <FooterComponent buttonName="backToVote"></FooterComponent>
   </div>
 </template>
 
 <script>
 import CatCardComponent from "@/components/CatCardComponent.vue";
+import FooterComponent from "@/components/FooterComponent.vue";
 import { mapGetters } from "vuex";
 
 export default {
   components: {
     CatCardComponent,
+    FooterComponent,
   },
   computed: {
     ...mapGetters("cats", {
@@ -40,31 +39,5 @@ export default {
   justify-self: center;
   text-align: center;
   padding: 0 0;
-}
-
-.footer {
-  text-align: center;
-}
-
-.ranking-button {
-  background-color: #333;
-  color: white;
-  border: none;
-  padding: 10px 20px;
-  border-radius: 5px;
-  font-size: 1em;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
-  text-decoration: none;
-}
-
-.ranking-button:hover {
-  background-color: #555;
-}
-
-.matches-played {
-  margin-top: 10px;
-  font-size: 0.9em;
-  color: #888;
 }
 </style>
